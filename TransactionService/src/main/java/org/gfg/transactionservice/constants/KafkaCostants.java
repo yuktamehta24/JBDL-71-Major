@@ -1,9 +1,10 @@
-package org.gfg.walletservice.constants;
+package org.gfg.transactionservice.constants;
 
-public interface KafkaConstants {
+public interface KafkaCostants {
 
-    String USER_CREATION_TOPIC ="user_created";
     String TRANSACTION_INITIATED_TOPIC ="transaction_initiated";
+
     String TRANSACTION_UPDATED_TOPIC ="transaction_updated";
+
 //    String TRANSACTION_UPDATED_TOPIC = "TestMajor";
 }

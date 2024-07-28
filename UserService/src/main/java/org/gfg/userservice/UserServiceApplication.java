@@ -32,7 +32,7 @@ public class UserServiceApplication implements CommandLineRunner {
                 .userType(UserType.ADMIN)
                 .authorities("SERVICE").build();
 
-        if(userRepository.findByPhoneNo("transaction-service") == null) {
+        if (userRepository.findByPhoneNo("transaction-service") == null) {
             userRepository.save(transactionService);
         }
 

@@ -1,7 +1,9 @@
-package org.gfg.walletservice.model;
+package org.gfg.transactionservice.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,6 +13,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.gfg.transactionservice.enums.TransactionStatus;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -22,21 +25,31 @@ import java.util.Date;
 @Builder
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Wallet {
+public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    String phoneNo; //phoneNo
+    String senderPhoneNo;
 
-    Integer userId;
+    String receiverPhoneNo;
 
-    Double balance;
+    String transactionId; //we would return to the user
+
+    Double amount;
+
+    String purpose;
+
+    String transactionStatusMessage;
+
+    @Enumerated(value = EnumType.STRING)
+    TransactionStatus status;
 
     @CreationTimestamp
     Date createdOn;
 
     @UpdateTimestamp
     Date updatedOn;
+
 }
